@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Game</title>
+</head>
+<body>
+ 
+      <h1 id= "displayResults">Guess What Letter I'm Thinking Of</h1>
+     
+
+  
+
+<script type="text/javascript">
+        
+   // var wordLetters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+   var wordLetters = ["a"];
+   
+   var losses = 0;
+  
+   var wins  = 0;
+  
+   var textTyped = [];
+  
+   // var display = document.querySelector("#displayResults");
+   
+     function displayResults(whoWon, k, c){
+        var display = document.querySelector("#displayResults");
+        var string = '<p>' + whoWon + '</p>';
+        string += '<p>User chose: ' + k + '<p>';
+        string += '<p>Computer chose: ' + c + '<p>';
+        string += '<p>Wins: ' + wins; + '</p>';
+        string += '<p>Losses: ' + losses; + '</p>';
+        string += '<p>Your Guesses: ' + textTyped ; + '</p>';
+        display.innerHTML = string;
+      }
+   
+     document.onkeyup = function(event){
+      
+      var key = event.key;
+      
+      var computerChoice = wordLetters[Math.floor(Math.random()*wordLetters.length)]; /* generates random cpu choice*/
+
+      textTyped.push(key); /*records guesses*/
+
+      if (key == computerChoice){
+      
+      wins++;
+      
+      displayResults('You Got It!', 'key', 'computerChoice')
+      
+    } else if (key != computerChoice)
+      
+      losses++;
+
+      displayResults('Wrong!', 'key', 'computerChoice')
+   
+
+    
+}
+</script>
+</body>
+</html>
