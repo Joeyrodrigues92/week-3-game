@@ -2,25 +2,42 @@
 <html>
 <head>
    <title>Game</title>
+   <link href="https://fonts.googleapis.com/css?family=Mystery+Quest" rel="stylesheet">
 </head>
 <style type="text/css">
    body {
-      background-image: url(../week-3-game/assests/img/Psy.jpg);
+      font-family: 'Mystery Quest', cursive;
+      color: purple;
+      background: gray;
    }
+   p {
+      color:blue;
+   }
+   img {
+      border: 2px dashed black; 
+      margin-left: 500px;
+      position: fixed;
+   }
+
+
 
 
 </style>
 <body>
  
+      <img src="http://www.pascalverdosci.com/file/2016/10/learning_about_psychic_healing.jpg">
+
       <h1 id= "displayResults">Guess What Letter I'm Thinking Of</h1>
-     
+      
+      
+        
 
   
 
 <script type="text/javascript">
         
-   // var wordLetters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-   var wordLetters = ["a"];
+   var wordLetters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+  
    
    var losses = 0;
   
@@ -28,6 +45,15 @@
   
    var textTyped = [];
   
+   // var images = {
+   //       losses : {
+   //          img : 'http://www.howtomakeit.com/wp-content/uploads/Dikembe-Mutombo.jpg'
+   //       }
+   //       win : { 
+   //          img : 'http://m.memegen.com/g9ip7f.jpg'
+   //       }
+   //    }
+   
    
      function displayResults(whoWon, k, c){
         var display = document.querySelector("#displayResults");
@@ -37,9 +63,12 @@
         string += '<p>Wins: ' + wins; + '</p>';
         string += '<p>Losses: ' + losses; + '</p>';
         string += '<p>Your Guesses: ' + textTyped ; + '</p>';
+        // string += "<img src=" + images + ">";
+
         display.innerHTML = string;
       }
-   
+
+     
      document.onkeyup = function(event){
       
       var key = event.key;
@@ -53,17 +82,15 @@
       
       wins++;
       
-      displayResults('You Got It!', key, computerChoice);
+      displayResults('You Got It !', key, computerChoice);
       
-    } else if (key != computerChoice);
+    } else if (key != computerChoice){
       
       losses++;
-
+                                                    /*images.losses.img*/
       displayResults('Wrong!', key, computerChoice);
-   
-
-    
-}
+      }
+     }
 </script>
 </body>
 </html>
