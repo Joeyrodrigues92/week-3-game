@@ -3,6 +3,13 @@
 <head>
    <title>Game</title>
 </head>
+<style type="text/css">
+   body {
+      background-image: url(../week-3-game/assests/img/Psy.jpg);
+   }
+
+
+</style>
 <body>
  
       <h1 id= "displayResults">Guess What Letter I'm Thinking Of</h1>
@@ -21,13 +28,12 @@
   
    var textTyped = [];
   
-   // var display = document.querySelector("#displayResults");
    
      function displayResults(whoWon, k, c){
         var display = document.querySelector("#displayResults");
         var string = '<p>' + whoWon + '</p>';
-        string += '<p>User chose: ' + k + '<p>';
-        string += '<p>Computer chose: ' + c + '<p>';
+        string += '<p>User choice: ' + k + '<p>';
+        string += '<p>Computer choice: ' + c + '<p>';
         string += '<p>Wins: ' + wins; + '</p>';
         string += '<p>Losses: ' + losses; + '</p>';
         string += '<p>Your Guesses: ' + textTyped ; + '</p>';
@@ -39,6 +45,7 @@
       var key = event.key;
       
       var computerChoice = wordLetters[Math.floor(Math.random()*wordLetters.length)]; /* generates random cpu choice*/
+      // console.log(computerChoice);
 
       textTyped.push(key); /*records guesses*/
 
@@ -46,13 +53,13 @@
       
       wins++;
       
-      displayResults('You Got It!', 'key', 'computerChoice')
+      displayResults('You Got It!', key, computerChoice);
       
-    } else if (key != computerChoice)
+    } else if (key != computerChoice);
       
       losses++;
 
-      displayResults('Wrong!', 'key', 'computerChoice')
+      displayResults('Wrong!', key, computerChoice);
    
 
     
